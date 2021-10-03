@@ -20,7 +20,7 @@ while 1:
         print (x)
         print (".")
         byteCounter=x.__len__()
-        print("bytecounter ist "+byteCounter.__str__())
+        print("bytecounter is "+byteCounter.__str__())
         if byteCounter == 18:
                 print("Startequence detected")
         
