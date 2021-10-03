@@ -30,6 +30,6 @@ while 1:
         
 
         #print (x.__len__())
-        time.sleep(1)
+        time.sleep(2)
         ser.write({0x41})
         0
