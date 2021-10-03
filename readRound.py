@@ -25,7 +25,7 @@ while 1:
                 print("Startequence detected")
         
         if byteCounter == 80:
-                print("Datasequence  detected")
+                print("Datasequence  detected   ")
 
         
 
