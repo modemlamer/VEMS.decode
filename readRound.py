@@ -3,14 +3,25 @@ import time
 import serial
 import sys
 import datetime
+import re
 
 
 if len(sys.argv) < 3:
         print("USAGE python readRound.py [SerialPort(eg. ttyUSB0)] [fileSuffix]")
         sys.exit()
+
+
+
+if re.match("COM[0-9]+",str(sys.argv[1])):
+        portString=''
+else:
+        portString='/dev/'
+
+
+
 #ttyUSB0
 ser = serial.Serial(
-        port='/dev/'+str(sys.argv[1]),
+        port=portString+str(sys.argv[1]),
         baudrate = 19200,
         parity=serial.PARITY_NONE,
         stopbits=serial.STOPBITS_ONE,
@@ -39,7 +50,7 @@ with open(myfileName, 'a') as the_file:
     the_file.write('--;'+myfileName+';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\n')
     while FrameCount < 4:
         FrameCount=FrameCount+1
-        x=ser.readline().hex()
+        x=ser.readline().encode().hex()
         #print (x)
         #print (".")
         
