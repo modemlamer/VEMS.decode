@@ -10,7 +10,7 @@ ser = serial.Serial(
         parity=serial.PARITY_NONE,
         stopbits=serial.STOPBITS_ONE,
         bytesize=serial.EIGHTBITS,
-        timeout=0.1
+        timeout=0.5
 )
 
 #  Prominent Arduino map function :)
@@ -18,7 +18,9 @@ def _map(x, in_min, in_max, out_min, out_max):
     return int((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
 	
 
-
+y = datetime.datetime.now()
+#print(y.strftime("%Y-%m-%d-%H%M%S")) 
+myfileName=y.strftime("%Y-%m-%d-%H%M%S")+'-VEMS-Bytelog-'+str(sys.argv[2])+'.csv'
 EGT_Str=""
 EGT_value=0
 EGT_v2=0
@@ -32,7 +34,7 @@ with open('somefile.txt', 'a') as the_file:
 
 
         x=ser.readline().hex()
-        #print (x)
+        print (x)
         #print (".")
         byteCounter=x.__len__()
         #print("bytecounter is "+byteCounter.__str__())
@@ -54,5 +56,6 @@ with open('somefile.txt', 'a') as the_file:
 
         #print (x.__len__())
         #time.sleep(0.2)
+        #ser.write({0x42, 0x43})
         ser.write({0x41})
         #0
