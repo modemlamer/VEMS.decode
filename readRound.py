@@ -11,7 +11,7 @@ if len(sys.argv) < 3:
         sys.exit()
 
 
-
+  
 if re.match("COM[0-9]+",str(sys.argv[1])):
         portString=''
 else:
