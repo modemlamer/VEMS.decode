@@ -15,7 +15,7 @@ ser = serial.Serial(
         parity=serial.PARITY_NONE,
         stopbits=serial.STOPBITS_ONE,
         bytesize=serial.EIGHTBITS,
-        timeout=0.5
+        timeout=0.1
 )
 
 #  Prominent Arduino map function :)
@@ -36,7 +36,7 @@ Vin=0
 FrameCount=0
 
 with open(myfileName, 'a') as the_file:
-    the_file.write('--;'+myfileName+';\n')
+    the_file.write('--;'+myfileName+';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\n')
     while FrameCount < 4:
         FrameCount=FrameCount+1
         x=ser.readline().hex()
