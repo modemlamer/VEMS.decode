@@ -4,6 +4,10 @@ import serial
 import sys
 import datetime
 
+
+if len(sys.argv) < 3:
+        print("USAGE python readRound.py [SerialPort(eg. ttyUSB0)] [fileSuffix]")
+        sys.exit()
 #ttyUSB0
 ser = serial.Serial(
         port='/dev/'+str(sys.argv[1]),
