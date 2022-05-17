@@ -4,6 +4,8 @@
         "string_view": "cpp",
         "deque": "cpp",
         "string": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "*.tcc": "cpp",
+        "list": "cpp"
     }
 }
